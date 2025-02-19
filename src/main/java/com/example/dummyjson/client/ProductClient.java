@@ -13,8 +13,8 @@ import com.example.dummyjson.dto.Product;
 @FeignClient(name = "Dummy", url = "https://dummyjson.com/", configuration = FooConfiguration.class)
 public interface ProductClient {
 	
-	@RequestMapping(method = RequestMethod.GET, value = "products/")
-	List<Product> getAllProduct();
+	@RequestMapping(method = RequestMethod.GET, value = "products")
+	String getAllProduct();
 	
 	@RequestMapping(method = RequestMethod.GET, value = "products/{id}")
 	Product getProductById(@PathVariable Long id);
