@@ -4,8 +4,6 @@ import org.springframework.cloud.openfeign.clientconfig.FeignClientConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import feign.Contract;
-
 @Configuration
 public class FooConfiguration {
     @Bean
@@ -18,5 +16,3 @@ public class FooConfiguration {
         };
     }
 }
-
- 

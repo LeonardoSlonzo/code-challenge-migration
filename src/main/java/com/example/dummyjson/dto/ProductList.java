@@ -1,9 +1,7 @@
 package com.example.dummyjson.dto;
 
 import java.util.List;
-
 import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
