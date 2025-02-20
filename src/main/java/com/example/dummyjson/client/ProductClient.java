@@ -7,7 +7,7 @@ import com.example.dummyjson.config.FooConfiguration;
 import com.example.dummyjson.dto.Product;
 import com.example.dummyjson.dto.ProductList;
 
-@FeignClient(name = "Dummy", url = "https://dummyjson.com/", configuration = FooConfiguration.class)
+@FeignClient(name = "Dummy", url="${server.url}", configuration = FooConfiguration.class)
 public interface ProductClient {
 	
 	@GetMapping("products")
