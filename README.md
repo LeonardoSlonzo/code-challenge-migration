@@ -80,7 +80,10 @@ dummyjson-client
 
 3. Acesse o serviço:
 
-    O serviço estará disponível em `http://localhost:8080`.
+    O serviço estará disponível em `http://localhost:8080`.\
+    Endpoint de buscar todos os produtos: `http://localhost:8080/api/products`. \
+    Endpoint de buscar produtos por ID: `http://localhost:8080/api/products/{id}`. \
+    Endpoint de saúde do microserviço: `http://localhost:8080/actuator/health/`. 
 
 ### Executar Testes
 
