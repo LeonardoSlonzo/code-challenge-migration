@@ -1,21 +1,22 @@
 
-# DummyJSON Client - Java 8 e Spring Boot 2.x.x
+# DummyJSON Client - Java 17 e Spring Boot 3.2.5
 
 ## Descrição do Projeto
 
-Este projeto é um microsserviço Java que interage com a API pública [DummyJSON](https://dummyjson.com/docs/products) para realizar operações de busca de produtos. O projeto foi desenvolvido usando Java 8 e Spring Boot 2.6.x.
+Este projeto é um microsserviço Java que interage com a API pública [DummyJSON](https://dummyjson.com/docs/products) para realizar operações de busca de produtos. O projeto foi desenvolvido usando Java 17 e Spring Boot 3.2.5.
 
 ## Objetivo do Desafio
+
 
 O desafio consiste em migrar este projeto para Java 17 e Spring Boot 3.2.5. Durante a migração, você enfrentará várias dificuldades, incluindo a adaptação ao novo namespace, substituição de métodos depreciados e ajustes em testes unitários.
 
 ## Funcionalidades
 
 - **Consulta de Produtos**: Realiza chamadas para a API do DummyJSON para buscar informações sobre produtos.
-- **Integração com `RestTemplate`**: Utiliza `RestTemplate` para realizar chamadas HTTP.
+- **Integração com `OpenFeign`**: Utiliza `OpenFeign` para realizar chamadas HTTP.
 - **Validação de Dados**: Validação de dados de entrada usando Bean Validation (`javax.validation`).
 - **Gestão de Dependências**: Configurado para utilizar @Autowired.
-- **Testes Unitários**: Inclui testes unitários desenvolvidos com JUnit 4 e Mockito.
+- **Testes Integrados**: Inclui testes integrados desenvolvidos com SpringBootTest e MockMvc.
 
 ## Estrutura do Projeto
 
@@ -27,35 +28,34 @@ dummyjson-client
 │   │   │   └── com.example.dummyjsonclient
 │   │   │       ├── DummyJsonClientApplication.java
 │   │   │       ├── config
-│   │   │       │   └── RestTemplateConfig.java
+│   │   │       │   └── FooConfiguration.java
 │   │   │       ├── controller
 │   │   │       │   └── ProductController.java
 │   │   │       ├── dto
-│   │   │       │   └── Product.java
-│   │   │       ├── service
-│   │   │       │   └── ProductService.java
+│   │   │       │   ├── Product.java
+│   │   │       │   └── ProductList.java
+│   │   │       └── service
+│   │   │           └── ProductService.java
 │   │   └── resources
 │   │       └── application.yaml
 │   └── test
 │       ├── java
-│       │   └── com.example.dummyjsonclient
-│       │       ├── config
-│       │       │   └── RestTemplateConfigTest.java
-│       │       └── controller
-│       │       │   └── ProductControllerTest.java
-│       │       ├── dto
-│       │       │   └── ProductTest.java
-│       │       └── service
-│       │           └── ProductServiceTest.java
+│       │   └── com.example.dummyjson
+│       │       ├── DummyJsonClientApplicationTest.java
+│       │       └── ProductControllerTest.java
 │       └── resources
-└── pom.xml
+│            └── application.yaml
+├── docker-compose.yaml
+├── Dockerfile
+├── pom.xml
+└── setup.sh
 ```
 
 ## Passos para Executar o Projeto
 
 ### Pré-requisitos
 
-- **Java 8**
+- **Java 17**
 - **Maven 3.8.x**
 
 ### Executar a Aplicação
@@ -63,15 +63,19 @@ dummyjson-client
 1. Clone o repositório:
 
     ```bash
-    git clone https://github.com/WendellTufano/code-challenge-migration.git
+    git clone https://github.com/LeonardoSlonzo/code-challenge-migration.git
     cd dummyjson-client
     ```
 
 2. Compile e execute o projeto:
-
+   1. Para executar pelo maven:
     ```bash
     mvn clean install
     mvn spring-boot:run
+    ```
+   2. Para executar em container no Docker:
+    ```bash
+    docker compose up -d
     ```
 
 3. Acesse o serviço:
@@ -80,7 +84,7 @@ dummyjson-client
 
 ### Executar Testes
 
-Para executar os testes unitários:
+Para executar os testes integrados:
 
 ```bash
 mvn clean test
