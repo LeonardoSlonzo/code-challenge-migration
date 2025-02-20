@@ -60,6 +60,31 @@
             <version>1.1.0.Final</version>
             <scope>provided</scope>
         </dependency>
+        
+        <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-data-jpa</artifactId>
+	    </dependency>
+	    
+        <!-- JUnit 4 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.12.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+
     </dependencies>
     <reporting>
         <plugins>
@@ -114,12 +139,12 @@
             </plugin>
         </plugins>
     </reporting>
-    <!--<build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
-                <version>1.4.3</version>
+                <version>1.11.0</version>
                 <executions>
                     <execution>
                         <id>pi-report</id>
@@ -139,5 +164,5 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build> -->
+    </build>
 </project>
