@@ -1,0 +1,6 @@
+services:
+  dummyjson:
+    container_name: "dummyjson"
+    image: dummyjson
+    ports:
+      - "8080:8080"
